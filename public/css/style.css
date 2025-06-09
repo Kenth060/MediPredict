@@ -1,0 +1,139 @@
+
+    :root {
+      --bg-color-light: #f9f9f9;
+      --bg-color-dark: #1e1e2f;
+      --text-color-light: #1d1d1d;
+      --text-color-dark: #f1f1f1;
+      --accent-color: #7e5bef;
+      --card-bg-light: #ffffff;
+      --card-bg-dark: #2c2c3c;
+      --border-color: #ccc;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color-light);
+      color: var(--text-color-light);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background-color: var(--bg-color-dark);
+      color: var(--text-color-dark);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--card-bg-light);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .dark-mode .header {
+      background-color: var(--card-bg-dark);
+      border-color: #444;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+
+    .mode-toggle {
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 2rem auto;
+      background-color: var(--card-bg-light);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .dark-mode .container {
+      background-color: var(--card-bg-dark);
+    }
+
+    h1, h2, p{
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 1rem;
+      display: block;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 0.4rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      background-color: #fff;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark-mode input,
+    .dark-mode select {
+      background-color: #3a3a4a;
+      color: #fff;
+      border-color: #666;
+    }
+
+    .upload-box {
+      border: 2px dashed var(--border-color);
+      padding: 2rem;
+      text-align: center;
+      color: #777;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .dark-mode .upload-box {
+      border-color: #555;
+      color: #aaa;
+    }
+
+    .btn {
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 1rem;
+      width: 100%;
+      font-size: 1rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+    }
+
+    .hidden {
+  display: none;
+}
+
+.btn-group {
+  margin-bottom: 20px;
+}
+
+#resultadoBusqueda {
+  margin-top: 15px;
+}

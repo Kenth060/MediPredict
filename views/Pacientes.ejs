@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediPredict - Carga de Datos</title>
+  <link rel="stylesheet" href="/resources/css/style.css" />
+  <script defer src="/resources/js/pacientes.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">MediPredict</div>
+    <button class="mode-toggle" onclick="toggleDarkMode()">Modo Noche</button>
+  </header>
+
+  <div class="container">
+    <h2>Gestión de Pacientes</h2>
+
+    <div class="btn-group">
+      <button id="btnBuscar" class="btn">Buscar Paciente</button>
+      <button id="btnAgregar" class="btn">Añadir Paciente</button>
+    </div>
+
+    <!-- FORMULARIO DE BÚSQUEDA ACTUALIZADO (solo nombre y fecha) -->
+    <div id="formBuscar" class="hidden">
+      <h3>Buscar Paciente</h3>
+      <form id="buscarForm">
+        <label for="nombreBuscar">Nombre</label>
+        <input type="text" id="nombreBuscar" placeholder="Nombre completo" required />
+
+        <label for="fechaBuscar">Fecha de Nacimiento</label>
+        <input type="date" id="fechaBuscar" required />
+
+        <button type="submit" class="btn">Buscar</button>
+      </form>
+
+      <div id="resultadoBusqueda" class="mt-3"></div>
+    </div>
+
+      <!-- FORMULARIO DE REGISTRO (sin edad) -->
+    <div id="formAgregar" class="hidden">
+      <h3>Nuevo Paciente</h3>
+      <form id="agregarForm">
+        <label for="Nombre">Nombre</label>
+        <input type="text" name="nombre" required />
+
+        <label for="Sexo">Sexo</label>
+        <select name="sexo" required>
+          <option value="">Seleccione</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+          <option value="Otro">Otro</option>
+        </select>
+
+        <label for="Direccion">Dirección</label>
+        <input type="text" name="direccion" />
+
+        <label for="Telefono">Teléfono</label>
+        <input type="text" name="telefono" />
+
+        <label for="Cedula">Cédula</label>
+        <input type="text" name="cedula" />
+
+        <label for="FechaNacimiento">Fecha de Nacimiento</label>
+        <input type="date" name="fecha_nacimiento" required />
+
+        <button type="submit" class="btn">Guardar y Continuar</button>
+      </form>
+    </div>
+
+
+
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    <% if (typeof alerta != 'undefined') { %>
+      Swal.fire({
+        icon: '<%= alerta.tipo %>',
+        title: '<%= alerta.mensaje %>',
+        showConfirmButton: true,
+      }).then(() => {
+        <% if (alerta.redirigir && alerta.paciente && alerta.paciente.id) { %>
+          window.location.href = '/Triaje/<%= alerta.paciente.id %>';
+        <% } %>
+      });
+    <% } %>
+  </script>
+
+  
+</body>
+</html>
+
