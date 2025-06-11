@@ -1,27 +1,4 @@
-const db = require('../db/db'); // pool de mysql2 con promesas
-
-/* module.exports = { */
-/* async agregarPaciente(data) {
-  const { nombre, sexo, fecha_nacimiento, cedula, direccion, telefono } = data;
-
-  const edad = calcularEdad(fecha_nacimiento);
-
-  const [result] = await pool.query(`
-    INSERT INTO paciente (nombre, edad, sexo, fecha_nacimiento, cedula, direccion, telefono)
-    VALUES (?, ?, ?, ?, ?, ?, ?)`,
-    [nombre, edad, sexo, fecha_nacimiento, cedula, direccion, telefono]);
-
-  return { id: result.insertId, nombre, edad };
-}, */
-
-/* async buscarPorNombreYFecha(nombre, fecha_nacimiento) {
-  const [rows] = await pool.query(
-    'SELECT * FROM paciente WHERE nombre = ? AND fecha_nacimiento = ?', [nombre, fecha_nacimiento]
-  );
-  return rows;
-}
-
-}; */
+const db = require('../db/db'); 
 
 const PacienteModel = 
 {

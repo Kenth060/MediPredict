@@ -7,39 +7,139 @@
   <link rel="stylesheet" href="/resources/css/style.css" />
 </head>
 <body>
-  <header>
-    <div class="logo">MediPredict</div>
-    <button class="toggle" onclick="toggleDarkMode()">Modo Noche</button>
+  <header class="header">
+    <div class="logo"> <a href="/" style="text-decoration: none; color: inherit;">MediPredict</a> </div>
+    <button class="mode-toggle" onclick="toggleDarkMode()">Modo Noche</button>
   </header>
 
   <div class="container">
-    <h2>Evaluación Inicial</h2>
+    <h2>Formulario de Triaje</h2>
+    <form method="POST" action="/AddTriaje">
 
-    <label>Selecciona enfermedades comunes que hayas tenido:</label>
-    <div class="checkbox-group">
-      <label><input type="checkbox" name="enf" /> Diabetes</label>
-      <label><input type="checkbox" name="enf" /> Hipertensión</label>
-      <label><input type="checkbox" name="enf" /> Asma</label>
-      <label><input type="checkbox" name="enf" /> Alergias</label>
-    </div>
+      <div class="form-group" style="display: none;">
+        <label for="id_paciente">ID del Paciente</label>
+        <input type="number" name="Id_Paciente" id="id_paciente" value="<%= Id_Paciente %>" />
+      </div>
 
-    <label>¿Qué síntomas presenta actualmente?</label>
-    <textarea placeholder="Describa los síntomas..."></textarea>
+      <div class="form-group">
+        <label for="modo_llegada">Modo de Llegada</label>
+        <select name="Modo_LLegada" id="modo_llegada" required>
+          <option value="">Seleccione</option>
+          <option value="Caminando">Caminando</option>
+          <option value="Ambulancia">Ambulancia</option>
+          <option value="Vehiculo Privado">Vehiculo Privado</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
 
-    <label>¿Tiene fiebre?</label>
-    <select>
-      <option value="">Seleccione una opción</option>
-      <option>Sí</option>
-      <option>No</option>
-    </select>
+      <div class="form-group">
+        <label for="lesion">¿Tiene lesión visible?</label>
+        <select name="Lesion" id="lesion" required>
+          <option value="">Seleccione</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </div>
 
-    <label>¿Desde cuándo presenta los síntomas?</label>
-    <input type="text" placeholder="Ej. Desde hace 3 días"/>
+      <div class="form-group">
+        <label for="queja">Queja Principal</label>
+        <textarea name="Queja_Principal" id="queja" rows="3" required></textarea>
+      </div>
 
-    <label>¿Ha tomado algún medicamento?</label>
-    <textarea placeholder="Mencione los medicamentos si los hay..."></textarea>
+      <div class="form-group">
+        <label for="estado_mental">Estado Mental</label>
+        <select name="Estado_Mental" id="estado_mental" required>
+          <option value="">Seleccione</option>
+          <option value="Alerta">Alerta</option>
+          <option value="Reaccion_Verbal">Reaccion Verbal</option>
+          <option value="Reaccion_Dolor">Reaccion al Dolor</option>
+          <option value="Inconsciente">Inconsciente</option>
+        </select>
+      </div>
 
-    <button class="submit-btn">Continuar</button>
+      <div class="form-group">
+        <label for="dolor">¿Tiene Dolor?</label>
+        <select name="Dolor" id="dolor" required>
+          <option value="">Seleccione</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="escala_dolor">Escala del Dolor (1-10)</label>
+        <input type="number" name="Escala_Dolor" id="escala_dolor" min="0" max="10" />
+      </div>
+
+      <div class="form-group">
+        <label for="presion_sistolica">Presión Sistólica (mmHg)</label>
+        <input type="number" name="Presion_Sistolica" id="presion_sistolica" />
+      </div>
+
+      <div class="form-group">
+        <label for="presion_diastolica">Presión Diastólica (mmHg)</label>
+        <input type="number" name="Presion_Diastolica" id="presion_diastolica" />
+      </div>
+
+      <div class="form-group">
+        <label for="frecuencia_cardiaca">Frecuencia Cardíaca (lpm)</label>
+        <input type="number" name="Frecuencia_Cardiaca" id="frecuencia_cardiaca" />
+      </div>
+
+      <div class="form-group">
+        <label for="frecuencia_respiratoria">Frecuencia Respiratoria (rpm)</label>
+        <input type="number" name="Frecuencia_Respiratoria" id="frecuencia_respiratoria" />
+      </div>
+
+      <div class="form-group">
+        <label for="temperatura">Temperatura Corporal (°C)</label>
+        <input type="number" step="0.1" name="Temperatura_Corporal" id="temperatura" />
+      </div>
+
+      <div class="form-group">
+        <label for="Type_ED">Tipo de ED</label>
+        <select name="Type_ED" id="Type_ED" required>
+          <option value="">Seleccione</option>
+          <option value="Rural">Rural</option>
+          <option value="Local">Local</option>
+        </select>
+      </div>
+      
+      
+      <button type="submit" class="btn">Clasificar</button>
+    </form>
+  </div>
+
+    <!-- <div>
+      <h2>Evaluación Inicial</h2>
+
+      <label>Selecciona enfermedades comunes que hayas tenido:</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="enf" /> Diabetes</label>
+        <label><input type="checkbox" name="enf" /> Hipertensión</label>
+        <label><input type="checkbox" name="enf" /> Asma</label>
+        <label><input type="checkbox" name="enf" /> Alergias</label>
+      </div>
+
+      <label>¿Qué síntomas presenta actualmente?</label>
+      <textarea placeholder="Describa los síntomas..."></textarea>
+
+      <label>¿Tiene fiebre?</label>
+      <select>
+        <option value="">Seleccione una opción</option>
+        <option>Sí</option>
+        <option>No</option>
+      </select>
+
+      <label>¿Desde cuándo presenta los síntomas?</label>
+      <input type="text" placeholder="Ej. Desde hace 3 días"/>
+
+      <label>¿Ha tomado algún medicamento?</label>
+      <textarea placeholder="Mencione los medicamentos si los hay..."></textarea>
+
+      <button class="submit-btn">Continuar</button>
+
+    </div> -->
   </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

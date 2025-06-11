@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediPredict - Gravedad</title>
+  <link rel="stylesheet" href="/resources/css/resultados.css" />
+
+</head>
+<body>
+  <header class="header">
+    <div class="logo"> <a href="/" style="text-decoration: none; color: inherit;">MediPredict</a> </div>
+    <button class="mode-toggle" onclick="toggleDarkMode()">Modo Noche</button>
+  </header>
+
+  <div class="container">
+    <h2>Nivel de Gravedad</h2>
+
+    <div class="severity red">
+      <span class="icon">⚠️</span>
+      <span>Crítico (Rojo)</span>
+    </div>
+
+    <p class="secondary-info">Posible problema: Neumonía avanzada</p>
+
+    <div class="recommendations">
+      <h3>Recomendaciones</h3>
+      <ul>
+        <li>Pronto sera atendido.</li>
+        <li>Evite esfuerzos físicos y mantenga la calma.</li>
+        <li>Lleve consigo los registros médicos recientes.</li>
+        <li>Avise a un familiar o contacto de emergencia.</li>
+      </ul>
+    </div>
+
+    <button class="btn" onclick="Inicio()">Guardar</button>
+  </div>
+    <script>
+        function toggleDarkMode() { document.body.classList.toggle('dark-mode');}
+        function Inicio() { window.location.href = '/inicio';}
+    </script>
+
+</body>
+</html>
+
+
+

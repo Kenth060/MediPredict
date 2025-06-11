@@ -148,3 +148,7 @@ function AgregarPaciente(Id,Nombre,Fecha, Cedula)
   // Agregar la fila a la tabla
   tabla.appendChild(nuevaFila);
 }
+
+function toggleDarkMode() 
+{ document.body.classList.toggle('dark-mode'); }
+    
