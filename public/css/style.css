@@ -1,139 +1,620 @@
+:root {
+  /* Colores base */
+  --bg-light: #ffffff;
+  --bg-dark: #1b1325;
+  --bg-color-light: #fdfdff;
+  --bg-color-dark: #1f1f2e;
 
-    :root {
-      --bg-color-light: #f9f9f9;
-      --bg-color-dark: #1e1e2f;
-      --text-color-light: #1d1d1d;
-      --text-color-dark: #f1f1f1;
-      --accent-color: #7e5bef;
-      --card-bg-light: #ffffff;
-      --card-bg-dark: #2c2c3c;
-      --border-color: #ccc;
-    }
+  --text-light: #1d1d1d;
+  --text-dark: #f1f1f1;
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg-color-light);
-      color: var(--text-color-light);
-      transition: background-color 0.3s, color 0.3s;
-    }
+  --card-light: #ffffff;
+  --card-dark: #2c2c3c;
 
-    .dark-mode {
-      background-color: var(--bg-color-dark);
-      color: var(--text-color-dark);
-    }
+  --border-color: #ddd;
+  --border-dark: #444;
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: var(--card-bg-light);
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .dark-mode .header {
-      background-color: var(--card-bg-dark);
-      border-color: #444;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--accent-color);
-    }
-
-    .mode-toggle {
-      background-color: var(--accent-color);
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .container {
-      max-width: 700px;
-      margin: 2rem auto;
-      background-color: var(--card-bg-light);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-
-    .dark-mode .container {
-      background-color: var(--card-bg-dark);
-    }
-
-    h1, h2, p{
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-
-    label {
-      font-weight: bold;
-      margin-top: 1rem;
-      display: block;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 0.8rem;
-      margin-top: 0.4rem;
-      border-radius: 6px;
-      border: 1px solid var(--border-color);
-      background-color: #fff;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    .dark-mode input,
-    .dark-mode select {
-      background-color: #3a3a4a;
-      color: #fff;
-      border-color: #666;
-    }
-
-    .upload-box {
-      border: 2px dashed var(--border-color);
-      padding: 2rem;
-      text-align: center;
-      color: #777;
-      border-radius: 10px;
-      margin-bottom: 1.5rem;
-    }
-
-    .dark-mode .upload-box {
-      border-color: #555;
-      color: #aaa;
-    }
-
-    .btn {
-      background-color: var(--accent-color);
-      color: white;
-      border: none;
-      padding: 1rem;
-      width: 100%;
-      font-size: 1rem;
-      border-radius: 8px;
-      margin-top: 2rem;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        margin: 1rem;
-        padding: 1.5rem;
-      }
-    }
-
-    .hidden {
-  display: none;
+  /* Colores secundarios */
+  --accent: #8a63e6;
+  --gray: #999;
+  --red: #ff4c4c;
+  --yellow: #ffc107;
+  --green: #4caf50;
 }
 
-.btn-group {
-  margin-bottom: 20px;
+/* ======== BASE ======== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color-light);
+  color: var(--text-light);
+  transition: background-color 0.3s, color 0.3s;
 }
 
-#resultadoBusqueda {
-  margin-top: 15px;
+body.dark,
+.dark-mode {
+  background-color: var(--bg-color-dark);
+  color: var(--text-dark);
 }
+
+/* ======== HEADER ======== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--card-light);
+  border-bottom: 1px solid var(--border-color);
+}
+
+body.dark header,
+.dark-mode header {
+  background-color: var(--card-dark);
+  border-color: var(--border-dark);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+/* ======== BOTONES ======== */
+.toggle,
+.mode-toggle,
+.btn,
+.submit-btn {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn,
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  border-radius: 12px;
+}
+
+/* ======== CONTENEDORES ======== */
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  background-color: var(--card-light);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s;
+}
+
+body.dark .container,
+.dark-mode .container {
+  background-color: var(--card-dark);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}
+
+/* ======== FORMULARIOS ======== */
+label {
+  display: block;
+  margin: 1rem 0 0.5rem;
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: #fff;
+  color: #000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark input,
+body.dark select,
+body.dark textarea,
+.dark-mode input,
+.dark-mode select,
+.dark-mode textarea {
+  background-color: #3b3b4f;
+  color: white;
+  border-color: #555;
+}
+
+/* ======== CHECKBOX GROUP ======== */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.checkbox-group label {
+  background: #eee;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+body.dark .checkbox-group label,
+.dark-mode .checkbox-group label {
+  background: #444;
+}
+
+/* ======== TEXTOS ======== */
+h2 {
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.total {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 0.2rem;
+  text-align: center;
+}
+
+/* ======== TAB FILTERS ======== */
+.section-title {
+  font-size: 1.2rem;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.tab-filter {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding-left: 0.4rem;
+}
+
+.tab-filter button {
+  background-color: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.tab-filter button.active {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* ======== UPLOAD BOX ======== */
+.upload-box {
+  border: 2px dashed var(--border-color);
+  padding: 2rem;
+  text-align: center;
+  color: #777;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+body.dark .upload-box {
+  border-color: #555;
+  color: #aaa;
+}
+
+/* ======== CARDS / STATS ======== */
+.flow {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 12px;
+  width: 220px;
+  background-color: var(--card-light);
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+body.dark .card {
+  background-color: var(--card-dark);
+}
+
+.card.red {
+  border-left: 5px solid var(--red);
+}
+
+.card.yellow {
+  border-left: 5px solid var(--yellow);
+}
+
+.card.green {
+  border-left: 5px solid var(--green);
+}
+
+.card .text {
+  display: flex;
+  flex-direction: column;
+}
+
+.card .label {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.card .number {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.icon {
+  font-size: 2rem;
+  margin-top: 0.5rem;
+}
+
+/* ======== CHART CONTAINER ======== */
+.chart-container {
+  background-color: var(--card-light);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+  transition: background-color 0.3s;
+}
+
+body.dark .chart-container {
+  background-color: var(--card-dark);
+}
+
+canvas {
+  width: 100%;
+  height: 150px;
+}
+:root {
+  /* Colores base */
+  --bg-light: #ffffff;
+  --bg-dark: #1b1325;
+  --bg-color-light: #fdfdff;
+  --bg-color-dark: #1f1f2e;
+
+  --text-light: #1d1d1d;
+  --text-dark: #f1f1f1;
+
+  --card-light: #ffffff;
+  --card-dark: #2c2c3c;
+
+  --border-color: #ddd;
+  --border-dark: #444;
+
+  /* Colores secundarios */
+  --accent: #8a63e6;
+  --gray: #999;
+  --red: #ff4c4c;
+  --yellow: #ffc107;
+  --green: #4caf50;
+}
+
+/* ======== BASE ======== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color-light);
+  color: var(--text-light);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark,
+.dark-mode {
+  background-color: var(--bg-color-dark);
+  color: var(--text-dark);
+}
+
+/* ======== HEADER ======== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--card-light);
+  border-bottom: 1px solid var(--border-color);
+}
+
+body.dark header,
+.dark-mode header {
+  background-color: var(--card-dark);
+  border-color: var(--border-dark);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+/* ======== BOTONES ======== */
+.toggle,
+.mode-toggle,
+.btn,
+.submit-btn {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn,
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  border-radius: 12px;
+}
+
+/* ======== CONTENEDORES ======== */
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  background-color: var(--card-light);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s;
+}
+
+body.dark .container,
+.dark-mode .container {
+  background-color: var(--card-dark);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}
+
+/* ======== FORMULARIOS ======== */
+label {
+  display: block;
+  margin: 1rem 0 0.5rem;
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: #fff;
+  color: #000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark input,
+body.dark select,
+body.dark textarea,
+.dark-mode input,
+.dark-mode select,
+.dark-mode textarea {
+  background-color: #3b3b4f;
+  color: white;
+  border-color: #555;
+}
+
+/* ======== CHECKBOX GROUP ======== */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.checkbox-group label {
+  background: #eee;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+body.dark .checkbox-group label,
+.dark-mode .checkbox-group label {
+  background: #444;
+}
+
+/* ======== TEXTOS ======== */
+h2 {
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.total {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 0.2rem;
+  text-align: center;
+}
+
+/* ======== TAB FILTERS ======== */
+.section-title {
+  font-size: 1.2rem;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.tab-filter {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding-left: 0.4rem;
+}
+
+.tab-filter button {
+  background-color: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.tab-filter button.active {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* ======== UPLOAD BOX ======== */
+.upload-box {
+  border: 2px dashed var(--border-color);
+  padding: 2rem;
+  text-align: center;
+  color: #777;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+body.dark .upload-box {
+  border-color: #555;
+  color: #aaa;
+}
+
+/* ======== CARDS / STATS ======== */
+.flow {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 12px;
+  width: 220px;
+  background-color: var(--card-light);
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+body.dark .card {
+  background-color: var(--card-dark);
+}
+
+.card.red {
+  border-left: 5px solid var(--red);
+}
+
+.card.yellow {
+  border-left: 5px solid var(--yellow);
+}
+
+.card.green {
+  border-left: 5px solid var(--green);
+}
+
+.card .text {
+  display: flex;
+  flex-direction: column;
+}
+
+.card .label {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.card .number {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.icon {
+  font-size: 2rem;
+  margin-top: 0.5rem;
+}
+
+/* ======== CHART CONTAINER ======== */
+.chart-container {
+  background-color: var(--card-light);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+  transition: background-color 0.3s;
+}
+
+body.dark .chart-container {
+  background-color: var(--card-dark);
+}
+
+canvas {
+  width: 100%;
+  height: 150px;
+}
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.95rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  thead {
+    background-color: #8a63e6;
+    color: white;
+  }
+
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  th {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+

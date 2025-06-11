@@ -3,9 +3,9 @@ const router = express.Router();
 
 router.use('/', require('./routes/pacientes.routes'));
 router.use('/', require('./routes/triaje.routes'));
+router.use('/', require('./routes/inicio.routes'));
 
 //Ruta raíz
-router.get('/inicio', (req, res) => res.render('inicio'));
 router.get ("/", (req, res) => { res.redirect("inicio");});
 
 

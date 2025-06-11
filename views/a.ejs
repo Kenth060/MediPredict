@@ -1,0 +1,29 @@
+<div id="formBuscar" style="display: block;">
+  <h3>Buscar Paciente</h3>
+
+  <label for="tipoBusqueda">Buscar por:</label>
+  <select id="tipoBusqueda">
+    <option value="">Seleccione una opción</option>
+    <option value="nombre">Nombre y Fecha de Nacimiento</option>
+    <option value="cedula">Cédula</option>
+  </select>
+
+  <form id="FormBuscarPaciente">
+    <div id="busquedaNombre" style="display: none;">
+      <label for="nombreBuscar">Nombre</label>
+      <input type="text" id="nombreBuscar" placeholder="Nombre completo" />
+
+      <label for="fechaBuscar">Fecha de Nacimiento</label>
+      <input type="date" id="fechaBuscar" />
+    </div>
+
+    <div id="busquedaCedula" style="display: none;">
+      <label for="cedulaBuscar">Cédula</label>
+      <input type="text" id="cedulaBuscar" placeholder="Cédula" />
+    </div>
+
+    <button type="submit" class="btn">Buscar</button>
+  </form>
+
+  <div id="resultadoBusqueda" class="mt-3"></div>
+</div>

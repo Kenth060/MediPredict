@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MediPredict - Carga de Datos</title>
   <link rel="stylesheet" href="/resources/css/style.css" />
-  <script defer src="/resources/js/pacientes.js"></script>
+  <link rel="shortcut icon" href="/resources/images/Logo.png">
 </head>
 <body>
   <header class="header">
@@ -17,78 +17,127 @@
     <h2>Gestión de Pacientes</h2>
 
     <div class="btn-group">
-      <button id="btnBuscar" class="btn">Buscar Paciente</button>
-      <button id="btnAgregar" class="btn">Añadir Paciente</button>
+      <button id="btnBuscarPaciente" class="btn">Buscar Paciente</button>
+      <button id="btnAgregarPaciente" class="btn">Añadir Paciente</button>
     </div>
 
-    <!-- FORMULARIO DE BÚSQUEDA ACTUALIZADO (solo nombre y fecha) -->
-    <div id="formBuscar" class="hidden">
+    
+    <div id="formBuscar" style="display: none;">
       <h3>Buscar Paciente</h3>
-      <form id="buscarForm">
-        <label for="nombreBuscar">Nombre</label>
-        <input type="text" id="nombreBuscar" placeholder="Nombre completo" required />
 
-        <label for="fechaBuscar">Fecha de Nacimiento</label>
-        <input type="date" id="fechaBuscar" required />
+      <label for="TipoBusqueda">Buscar por:</label>
+      <select id="TipoBusqueda">
+        <option value="">Seleccione una opción</option>
+        <option value="Nombre">Nombre</option>
+        <option value="Cedula">Cédula</option>
+      </select>
+
+      <form id="FormBuscarPaciente">
+        <div id="BusquedaNombre" style="display: none;">
+          <label for="Nombre_Busqueda">Nombre del Paciente</label>
+          <input type="text" id="Nombre_Busqueda" placeholder="Nombres del Paciente" />
+
+          <label for="Apellidos_Busqueda">Apellidos del Paciente</label>
+          <input type="text" id="Apellidos_Busqueda" placeholder="Apellidos del Paciente" />
+
+          <label for="Fecha_Busqueda">Fecha de Nacimiento</label>
+          <input type="date" id="Fecha_Busqueda" />
+        </div>
+
+        <div id="BusquedaCedula" style="display: none;">
+          <label for="Cedula_Busqueda">Numero de Cedula del Paciente</label>
+          <input type="text" id="Cedula_Busqueda" placeholder="Numero de Cedula del Paciente" />
+        </div>
 
         <button type="submit" class="btn">Buscar</button>
       </form>
 
-      <div id="resultadoBusqueda" class="mt-3"></div>
+      <div id="resultadoBusqueda">
+        <table class="table primary" id="Tabla_Resultados" style="display: none;">
+          <thead>
+            <tr>
+              <th class="centrado">Nombre del Paciente</th>
+              <th class="centrado">Fecha de Nacimiento</th>
+              <th class="centrado">Cedula</th>
+              <th class="centrado">Accion</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
     </div>
-
-      <!-- FORMULARIO DE REGISTRO (sin edad) -->
-    <div id="formAgregar" class="hidden">
+    
+    <div id="formAgregar" style="display: none;">
       <h3>Nuevo Paciente</h3>
-      <form id="agregarForm">
-        <label for="Nombre">Nombre</label>
-        <input type="text" name="nombre" required />
 
-        <label for="Sexo">Sexo</label>
-        <select name="sexo" required>
-          <option value="">Seleccione</option>
+      <form action="/AddPaciente" method="post">
+
+        <label for="Nombre_Px">Nombre del Paciente</label>
+        <input id="Nombre_Px" type="text" name="Nombre_Px" required placeholder="Ingrese el Nombre del Paciente" />
+
+        <label for="Apellido_Px">Apellido del Paciente</label>
+        <input id="Apellido_Px" type="text" name="Apellido_Px" required placeholder="Ingrese el Apellido del Paciente" />
+
+        <label for="Cedula_Px">Cedula del Paciente</label>
+        <input id="Cedula_Px" type="text" name="Cedula_Px" placeholder="Ingrese la Cedula del Paciente" />
+
+        <label for="Sexo_Px">Sexo del Paciente</label>
+        <select id="Sexo_Px" name="Sexo_Px" required>
           <option value="Masculino">Masculino</option>
           <option value="Femenino">Femenino</option>
           <option value="Otro">Otro</option>
         </select>
 
-        <label for="Direccion">Dirección</label>
-        <input type="text" name="direccion" />
+        <label for="FechaNacimiento_Px">Fecha de Nacimiento</label>
+        <input id="FechaNacimiento_Px" type="date" name="FechaNacimiento_Px" required />
 
-        <label for="Telefono">Teléfono</label>
-        <input type="text" name="telefono" />
+        <label for="Direccion_Px">Dirección</label>
+        <input id="Direccion_Px" type="text" name="Direccion_Px" placeholder="Ingrese la Direccion del Paciente" />
 
-        <label for="Cedula">Cédula</label>
-        <input type="text" name="cedula" />
+        <label for="Telefono_Px">Teléfono</label>
+        <input id="Telefono_Px" type="number" name="Telefono_Px" placeholder="Ingrese el Numero Telefonico del Paciente" />
 
-        <label for="FechaNacimiento">Fecha de Nacimiento</label>
-        <input type="date" name="fecha_nacimiento" required />
+        <label for="Residencia_Px">Tipo de Residencia del Paciente</label>
+        <select id="Residencia_Px" name="Residencia_Px" required>
+          <option value="Urbana">Urbana</option>
+          <option value="Rural">Rural</option>
+        </select>
 
+        <label for="Tabaquismo_Px">El paciente Fuma?</label>
+        <select id="Tabaquismo_Px" name="Tabaquismo_Px" required>
+          <option value="Si">Si</option>
+          <option value="No">No</option>
+        </select>
+        
         <button type="submit" class="btn">Guardar y Continuar</button>
       </form>
+
     </div>
-
-
-
 
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
-    <% if (typeof alerta != 'undefined') { %>
-      Swal.fire({
-        icon: '<%= alerta.tipo %>',
-        title: '<%= alerta.mensaje %>',
-        showConfirmButton: true,
-      }).then(() => {
-        <% if (alerta.redirigir && alerta.paciente && alerta.paciente.id) { %>
-          window.location.href = '/Triaje/<%= alerta.paciente.id %>';
-        <% } %>
-      });
-    <% } %>
-  </script>
 
-  
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <% if (typeof alert != "undefined") { %>
+    <script>
+      Swal.fire({
+        title: "<%= alertTitle %>",
+        text: "<%= alertMessage %>",
+        icon: "<%= alertIcon %>",
+        showConfirmButton: true,
+        timer: false,
+      }).then(() => {
+        window.location = "/<%= ruta %>";
+      });
+    </script>
+    <% } %>
+
+  <script src="/resources/js/script_pacientes.js"></script>
+    
 </body>
 </html>
 

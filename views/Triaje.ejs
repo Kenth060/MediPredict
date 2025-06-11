@@ -1,1 +1,62 @@
-TRIAJE EN PROCESO
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediPredict - Evaluación de Síntomas</title>
+  <link rel="stylesheet" href="/resources/css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">MediPredict</div>
+    <button class="toggle" onclick="toggleDarkMode()">Modo Noche</button>
+  </header>
+
+  <div class="container">
+    <h2>Evaluación Inicial</h2>
+
+    <label>Selecciona enfermedades comunes que hayas tenido:</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="enf" /> Diabetes</label>
+      <label><input type="checkbox" name="enf" /> Hipertensión</label>
+      <label><input type="checkbox" name="enf" /> Asma</label>
+      <label><input type="checkbox" name="enf" /> Alergias</label>
+    </div>
+
+    <label>¿Qué síntomas presenta actualmente?</label>
+    <textarea placeholder="Describa los síntomas..."></textarea>
+
+    <label>¿Tiene fiebre?</label>
+    <select>
+      <option value="">Seleccione una opción</option>
+      <option>Sí</option>
+      <option>No</option>
+    </select>
+
+    <label>¿Desde cuándo presenta los síntomas?</label>
+    <input type="text" placeholder="Ej. Desde hace 3 días"/>
+
+    <label>¿Ha tomado algún medicamento?</label>
+    <textarea placeholder="Mencione los medicamentos si los hay..."></textarea>
+
+    <button class="submit-btn">Continuar</button>
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <% if (typeof alert != "undefined") { %>
+    <script>
+      Swal.fire({
+        title: "<%= alertTitle %>",
+        text: "<%= alertMessage %>",
+        icon: "<%= alertIcon %>",
+        showConfirmButton: true,
+        timer: false,
+      }).then(() => {
+        window.location = "/<%= ruta %>";
+      });
+    </script>
+    <% } %>
+  
+</body>
+</html>

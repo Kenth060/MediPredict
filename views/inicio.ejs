@@ -1,27 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MediPredict - Inicio </title>
-  <link rel="stylesheet" href="resources/css/style.css" />
+  <title>MediPredict Dashboard</title>
+  <link rel="stylesheet" href="/resources/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
-    <header class="header">
-        <div class="logo">MediPredict</div>
-        <button class="mode-toggle" onclick="toggleDarkMode()">Modo Noche</button>
-    </header>
+  <!-- Nuevo encabezado -->
+  <header class="header">
+    <div class="logo">MediPredict</div>
+    <button class="mode-toggle" onclick="toggleDarkMode()">Modo Noche</button>
+  </header>
 
-    <div class="container">
-        <h1>Bienvenido a MediPredict</h1>
-        <p>Tu asistente de salud inteligente.</p>
-        <form action="/Pacientes">
-            <button class="btn" type="submit">Ingresar nuevo Paciente</button>
-        </form>
+  <div class="container">
+    <div class="section-title">Total de Pacientes</div>
+
+    <div class="tab-filter">
+      <button class="active" onclick="changeData('día')">Día</button>
+      <button onclick="changeData('semana')">Semana</button>
+      <button onclick="changeData('mes')">Mes</button>
     </div>
 
-    <script src="resources/js/script.js"></script>
+    <div class="total" id="total-count"></div>
+
+    <div class="chart-container">
+      <canvas id="chart" height="150"></canvas>
+    </div>
+
+    <div class="section-title">Flujo de Pacientes</div>
+    
+    <div class="flow">
+
+      <div class="card red">
+        <div class="text">
+          <div class="label">Pacientes Rojos</div>
+          <div class="number" id="Pacientes_Rojos"></div>
+        </div>
+        <div class="icon">❗</div>
+      </div>
+
+      <div class="card yellow">
+        <div class="text">
+          <div class="label">Pacientes Amarillos</div>
+          <div class="number" id="Pacientes_Amarillos"></div>
+        </div>
+        <div class="icon">⚠️</div>
+      </div>
+
+      <div class="card green">
+        <div class="text">
+          <div class="label">Pacientes Verdes</div>
+          <div class="number" id="Pacientes_Verdes"></div>
+        </div>
+        <div class="icon">✅</div>
+      </div>
+
+    </div>
+
+    <button class="btn" id="btn_Triaje">Nuevo Triaje</button>
+  </div>
+
+
+  <script src="/resources/js/script_inicio.js"></script>
 </body>
 </html>
-
