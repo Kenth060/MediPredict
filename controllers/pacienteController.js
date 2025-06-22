@@ -38,7 +38,7 @@ const PacienteController =
         showConfirmButton: true,
         timer: false,
         ruta: 'Triaje/' + ID.Id_Paciente, // Redirigir a la página de Triaje con el ID del paciente
-        Id_Paciente: ID.Id_Paciente // Pasar el ID del paciente agregado
+        Id_Paciente: ID.Id_Paciente
       });
     } 
     catch (error) 

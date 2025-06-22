@@ -10,4 +10,6 @@ router.get('/Triaje/:Id_Paciente', (req, res) => {
 
 router.post('/AddTriaje', TriajeController.AgregarTriaje);
 
+router.post('/DoTriaje', TriajeController.RealizarTriaje);
+
 module.exports = router;

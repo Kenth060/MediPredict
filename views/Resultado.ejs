@@ -13,32 +13,77 @@
     <button class="mode-toggle" onclick="toggleDarkMode()">Modo Noche</button>
   </header>
 
-  <div class="container">
-    <h2>Nivel de Gravedad</h2>
 
-    <div class="severity red">
-      <span class="icon">⚠️</span>
-      <span>Crítico (Rojo)</span>
-    </div>
 
-    <p class="secondary-info">Posible problema: Neumonía avanzada</p>
+  <% if (resultado == "Rojo") { %>
+    <div class="container">
+      <h2>Nivel de Gravedad</h2>
+      <div class="severity red">
+        <span class="icon">🔴⚠️</span>
+        <span>Crítico (Rojo)</span>
+      </div>
 
-    <div class="recommendations">
-      <h3>Recomendaciones</h3>
-      <ul>
-        <li>Pronto sera atendido.</li>
-        <li>Evite esfuerzos físicos y mantenga la calma.</li>
-        <li>Lleve consigo los registros médicos recientes.</li>
-        <li>Avise a un familiar o contacto de emergencia.</li>
-      </ul>
-    </div>
 
-    <button class="btn" onclick="Inicio()">Guardar</button>
-  </div>
-    <script>
-        function toggleDarkMode() { document.body.classList.toggle('dark-mode');}
-        function Inicio() { window.location.href = '/inicio';}
-    </script>
+      <div class="recommendations">
+        <h3>Recomendaciones</h3>
+        <ul>
+          <li>Atender de Inmediato</li>
+          <li>Evite esfuerzos físicos y mantenga la calma.</li>
+          <li>Lleve consigo los registros médicos recientes.</li>
+          <li>Avise a un familiar o contacto de emergencia.</li>
+        </ul>
+      </div>
+
+      <button class="btn" onclick="Inicio()">Guardar</button>
+    </div>    
+  <% }else if (resultado == "Amarillo") { %>
+    <div class="container">
+      <h2>Nivel de Gravedad</h2>
+      <div class="severity yellow">
+        <span class="icon">⚠️</span>
+        <span>Urgente (Amarillo)</span>
+      </div>
+
+      <div class="recommendations">
+        <h3>Recomendaciones</h3>
+        <ul>
+          <li>Atender Pronto (30-60 Minutos).</li>
+          <li>Brindar medicación para brindar comodidad al paciente</li>
+          <li>Revisar los registros médicos recientes.</li>
+          <li>Avise a un familiar o contacto de emergencia.</li>
+        </ul>
+      </div>
+
+      <button class="btn" onclick="Inicio()">Guardar</button>
+    </div>    
+  <% } else if (resultado == "Verde") { %>
+    <div class="container">
+      <h2>Nivel de Gravedad</h2>
+      <div class="severity green">
+        <span class="icon">🟢</span>
+        <span>No Urgente (Verde)</span>
+      </div>
+
+      <div class="recommendations">
+        <h3>Recomendaciones</h3>
+        <ul>
+          <li>Atender luego de casos urgentes (60 a 120 minutos)</li>
+          <li>Brindar Medicacion necesaria</li>
+          <li>Evite esfuerzos físicos y mantenga la calma.</li>
+          <li>Lleve consigo los registros médicos recientes.</li>
+          <li>Avise a un familiar o contacto de emergencia.</li>
+        </ul>
+      </div>
+
+      <button class="btn" onclick="Inicio()">Guardar</button>
+    </div>    
+  <% } %>
+
+
+  <script>
+      function toggleDarkMode() { document.body.classList.toggle('dark-mode');}
+      function Inicio() { window.location.href = '/inicio';}
+  </script>
 
 </body>
 </html>

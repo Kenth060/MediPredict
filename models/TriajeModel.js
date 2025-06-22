@@ -23,12 +23,29 @@ const TriajeModel =
       datos.Frecuencia_Respiratoria,
       datos.Temperatura_Corporal,
       datos.Type_ED,
-      KTAS,
-      Resultado_Triage,
+      datos.KTAS,
+      datos.Resultado_Triage,
     ];
         
     const query = `CALL InsertarTriaje(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
     const [result] = await db.query(query, valores);
+  },
+  async ObtenerSexo(ID_Paciente)
+  {
+    const query = `SELECT P.Sexo from pacientes P where P.Id_Paciente = ?`;
+    const [result] = await db.query(query, [ID_Paciente]);
+
+    console.log('Resultado de la consulta:', result);
+    
+    if (result.length > 0) 
+    {
+      console.log('Sexo del Paciente desde db:', result[0].Sexo);
+      return result[0].Sexo;
+    } 
+    else 
+    {
+      throw new Error('Paciente no encontrado');
+    }
   }
 };
 

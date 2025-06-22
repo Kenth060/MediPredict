@@ -68,3 +68,6 @@ document.addEventListener('DOMContentLoaded', async () =>
   // Cargar día por defecto
   changeData('día');
 });
+
+function toggleDarkMode() 
+{ document.body.classList.toggle('dark-mode'); }
